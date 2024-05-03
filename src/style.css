@@ -1,0 +1,389 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body styles */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #333;
+}
+
+/* Main container */
+.container {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+  padding: 0px 25px;
+}
+
+/* Sections */
+section {
+  background: #fefefe;
+  border-radius: 7px;
+}
+
+/* Tools board */
+.tools-board {
+  width: 210px;
+  padding: 15px 22px 0;
+}
+
+/* Tool icons */
+.tools-icons {
+  height: 16px;
+  width: 16px;
+}
+
+/* Tool row */
+.tools-board .row {
+  margin-bottom: 20px;
+}
+
+/* Tool options */
+.row .options {
+  list-style: none;
+  margin: 10px 0 0 5px;
+}
+
+/* Individual tool option */
+.row .options .option {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Hover and active styles for tool icons and labels */
+.option:hover img,
+.option.active img {
+  filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+}
+
+.option span,
+.option label {
+  color: #5A6168;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.option:hover span,
+.option.active span,
+.option:hover label,
+.option.active label {
+  color: #4A98F7;
+}
+
+/* Fill color checkbox and color picker */
+#fill-color,
+.option #color-picker {
+  cursor: pointer;
+}
+
+#fill-color:checked~label {
+  color: #4A98F7;
+}
+
+/* Size slider */
+.option #size-slider {
+  width: 100%;
+  height: 5px;
+  margin-top: 10px;
+}
+
+/* Color options */
+.colors .options {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Individual color option */
+.colors .option {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-top: 3px;
+  position: relative;
+}
+
+/* Color options */
+.colors .option:nth-child(1) {
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+}
+
+.colors .option:nth-child(2) {
+  background-color: #000;
+}
+
+.colors .option:nth-child(3) {
+  background-color: #E02020;
+}
+
+.colors .option:nth-child(4) {
+  background-color: #6DD400;
+}
+
+.colors .option:nth-child(5) {
+  background-color: #4A98F7;
+}
+
+/* Selected color indicator */
+.colors .option.selected::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  height: 12px;
+  width: 12px;
+  background: inherit;
+  border-radius: inherit;
+  border: 2px solid #fff;
+  transform: translate(-50%, -50%);
+}
+
+.colors .option:first-child.selected::before {
+  border-color: #ccc;
+}
+
+/* Buttons */
+.buttons button {
+  width: 100%;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 11px 0;
+  font-size: 0.9rem;
+  margin-bottom: 13px;
+  background: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Clear canvas button */
+.buttons .clear-canvas {
+  color: #6C757D;
+  border: 1px solid #6C757D;
+  transition: all 0.3s ease;
+}
+
+.clear-canvas:hover {
+  color: #fff;
+  background: #6C757D;
+}
+
+/* Save and copy image buttons */
+.buttons .save-img,
+.buttons .copy-img,
+.buttons .upload {
+  background: #4A98F7;
+  border: 1px solid #4A98F7;
+}
+
+/* Drawing board */
+.drawing-board {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Canvas */
+.drawing-board canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.cur-brush {
+  cursor: url(./images/icon3.png) 0 30, progress;
+}
+
+.cur-eraser {
+  cursor: url(./images/erase.png) 0 30, progress;
+}
+
+.text-center {
+  text-align: center;
+}
+
+#undo,
+#redo {
+  cursor: pointer;
+}
+
+.popup {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black with opacity */
+}
+
+.popup-content {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 350px;
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-clipboard {
+  display: block;
+  padding: .5em;
+  line-height: 1;
+  border: 0;
+  border-radius: .25rem;
+  background: gray;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+/* Set an element to become a flex container */
+.d-flex {
+  display: flex;
+}
+
+/* Set a flex container to inline-level */
+.d-inline-flex {
+  display: inline-flex;
+}
+
+/* Align flex items to the start of the flex container */
+.justify-content-start {
+  justify-content: flex-start;
+}
+
+/* Align flex items to the end of the flex container */
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+/* Align flex items at the center of the flex container */
+.justify-content-center {
+  justify-content: center;
+}
+
+/* Distribute flex items evenly with space between them */
+.justify-content-between {
+  justify-content: space-between;
+}
+
+/* Distribute flex items evenly with space around them */
+.justify-content-around {
+  justify-content: space-around;
+}
+
+/* Distribute flex items evenly with equal space around them */
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+
+/* Align flex items to the start of the cross axis */
+.align-items-start {
+  align-items: flex-start;
+}
+
+/* Align flex items to the end of the cross axis */
+.align-items-end {
+  align-items: flex-end;
+}
+
+/* Align flex items at the center of the cross axis */
+.align-items-center {
+  align-items: center;
+}
+
+/* Align flex items to their baseline */
+.align-items-baseline {
+  align-items: baseline;
+}
+
+/* Stretch flex items to fill the container's cross-axis */
+.align-items-stretch {
+  align-items: stretch;
+}
+
+/* Align a flex item to the start of the cross axis within the flex container */
+.align-self-start {
+  align-self: flex-start;
+}
+
+/* Align a flex item to the end of the cross axis within the flex container */
+.align-self-end {
+  align-self: flex-end;
+}
+
+/* Align a flex item at the center of the cross axis within the flex container */
+.align-self-center {
+  align-self: center;
+}
+
+/* Align a flex item to its baseline within the flex container */
+.align-self-baseline {
+  align-self: baseline;
+}
+
+/* Stretch a flex item to fill the container's cross-axis */
+.align-self-stretch {
+  align-self: stretch;
+}
+
+.loader {
+  display: block;
+  border: 16px solid #f3f3f3;
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>ShanShare | Ankit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- style sheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- script -->
+  <script src="script.js" defer></script>
+  <!-- cropper js -->
+  <script src="../cropperjs/cropper.min.js"></script>
+  <link rel="stylesheet" href="../cropperjs/cropper.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- Tools Section -->
+    <section class="tools-board">
+      <div class="row">
+        <!-- Shapes Tools -->
+        <label class="title">Shapes</label>
+        <ul class="options">
+          <li class="option tool" id="rectangle">
+            <img class="tools-icons" src="icons/rectangle.svg" alt="">
+            <span>Rectangle</span>
+          </li>
+          <li class="option tool" id="circle">
+            <img class="tools-icons" src="icons/circle.svg" alt="">
+            <span>Circle</span>
+          </li>
+          <li class="option tool" id="triangle">
+            <img class="tools-icons" src="icons/triangle.svg" alt="">
+            <span>Triangle</span>
+          </li>
+          <li class="option tool" id="arrow">
+            <img class="tools-icons" src="icons/arrow.svg" alt="">
+            <span>Arrow</span>
+          </li>
+          <li class="option">
+            <input type="checkbox" id="fill-color">
+            <label for="fill-color">Fill color</label>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <!-- Drawing Options -->
+        <label class="title">Options</label>
+        <ul class="options">
+          <li class="option active tool" id="brush">
+            <img class="tools-icons" src="icons/brush.svg" alt="">
+            <span>Brush</span>
+          </li>
+          <li class="option tool" id="crop">
+            <img class="tools-icons" src="icons/crop.svg" alt="">
+            <span>Crop</span>
+          </li>
+          <li class="option tool" id="eraser">
+            <img class="tools-icons" src="icons/eraser.svg" alt="">
+            <span>Eraser</span>
+          </li>
+          <li class="option">
+            <input type="range" id="size-slider" min="1" max="30" value="5">
+          </li>
+        </ul>
+      </div>
+      <div class="row text-center">
+        <span id="undo">
+          <img src="images/undo-icon.png" alt="">
+        </span>
+        <span id="redo">
+          <img src="images/redo-icon.png" alt="">
+        </span>
+      </div>
+      <div class="row colors">
+        <!-- Color Options -->
+        <label class="title">Colors</label>
+        <ul class="options">
+          <li class="option"></li>
+          <li class="option selected"></li>
+          <li class="option"></li>
+          <li class="option"></li>
+          <li class="option">
+            <input type="color" id="color-picker" value="#4A98F7">
+          </li>
+        </ul>
+      </div>
+      <div class="row buttons">
+        <!-- Control Buttons -->
+        <button class="clear-canvas"> Clear</button>
+        <button id="shareBtn" class="upload"> <img class="tools-icons" src="images/share.png" alt="">
+          <span>Share</span></button>
+        <button class="save-img"> <img class="tools-icons" src="icons/download.svg" alt=""> <span>Save</span></button>
+        <button class="copy-img">Copy</button>
+      </div>
+    </section>
+    <!-- Drawing Board Section -->
+    <section class="drawing-board">
+      <canvas></canvas>
+    </section>
+  </div>
+  <!-- The popup -->
+  <div id="sharePopup" class="popup">
+    <div class="loader"></div>
+    <div class="popup-content">
+      <div class="d-flex justify-content-end align-items-center">
+        <span id="popupClose" class="close">&times;</span>
+      </div>
+      <div class="d-flex justify-content-end align-items-center">
+        <input class="flex-grow" type="text" value="https://yourwebsite.com/sharelink" id="linkInput">
+        <button id="copy-link" class="btn-clipboard"> <img class="tools-icons" src="icons/copy.svg" alt=""></button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

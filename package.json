@@ -1,0 +1,10 @@
+{
+  "name": "spanshare",
+  "version": "1.0.0",
+  "description": "SpanShare: Capture browser tabs and instantly share links with ease. Effortlessly collaborate and communicate visually.",
+  "author": "Ankit Patel",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "ShapShare",
+    "version": "1.0.1",
+    "description": "SpanShare: Capture browser tabs and instantly share links with ease. Effortlessly collaborate and communicate visually.",
+    "background": {
+        "service_worker": "src/service-worker.js"
+    },
+    "action": {
+        "default_icon": "src/images/icon32.png",
+        "default_title": "ShapShare"
+    },
+    "icons": {
+        "16": "src/images/icon1.png",
+        "32": "src/images/icon32.png",
+        "48": "src/images/icon48.png",
+        "128": "src/images/icon128.png",
+        "256": "src/images/icon256.png"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "manifest_version": 3
+}
